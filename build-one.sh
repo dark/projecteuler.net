@@ -38,7 +38,7 @@ fi
 # build and run C++ solutions
 if ls *.cc &> /dev/null;then
     log "Building C++ solution for problem $1 ..."
-    tryexec gcc -std=c++11 -Wall *.cc -o "${1}.bin"
+    tryexec g++ -std=c++11 -Wall *.cc -o "${1}.bin"
     log "Running executable..."
     tryexec "./${1}.bin"
     log "All done."
