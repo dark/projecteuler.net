@@ -25,10 +25,20 @@ function tryexec() {
 
 pushd $1
 
-# try C solutions first
+# build and run C solutions
 if ls *.c &> /dev/null;then
     log "Building C solution for problem $1 ..."
     tryexec gcc -Wall *.c -o "${1}.bin"
+    log "Running executable..."
+    tryexec "./${1}.bin"
+    log "All done."
+    exit 0
+fi
+
+# build and run C++ solutions
+if ls *.cc &> /dev/null;then
+    log "Building C++ solution for problem $1 ..."
+    tryexec gcc -std=c++11 -Wall *.cc -o "${1}.bin"
     log "Running executable..."
     tryexec "./${1}.bin"
     log "All done."
