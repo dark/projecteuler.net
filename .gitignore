@@ -1,0 +1,5 @@
+# ignore all binary files
+*.bin
+
+# ignore all compiled Java classes
+*.class
