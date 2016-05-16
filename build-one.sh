@@ -29,6 +29,8 @@ pushd $1
 if ls *.c &> /dev/null;then
     log "Building C solution for problem $1 ..."
     tryexec gcc -Wall *.c -o "${1}.bin"
+    log "Running executable..."
+    tryexec "./${1}.bin"
     log "All done."
     exit 0
 fi
